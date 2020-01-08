@@ -15,10 +15,10 @@ export const wrapperLoginStyles: ObjectInterpolation<any> = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  boxShadow: "0px 0px 19px 3px beige"
+  boxShadow: "0px 0px 19px 3px beige",
 };
 
 export const buttonsWrapperStyle: ObjectInterpolation<any> = {
   display: "flex",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
 };

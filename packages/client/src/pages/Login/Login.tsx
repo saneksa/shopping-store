@@ -15,7 +15,7 @@ enum EFieldsNames {
   LOGIN,
   PASSWORD,
   NAME,
-  CONFIRM_PASSWORD
+  CONFIRM_PASSWORD,
 }
 
 const query = gql`
@@ -36,7 +36,7 @@ const Login: React.FC<ILoginProps> = props => {
     getFieldsError,
     getFieldValue,
     validateFields,
-    validateFieldsAndScroll
+    validateFieldsAndScroll,
   } = props.form;
 
   const [isRegister, setIsRegister] = useState(false);
@@ -61,14 +61,13 @@ const Login: React.FC<ILoginProps> = props => {
       validateFieldsAndScroll((err, values) => {
         if (!err) {
           if (isRegister) {
-            console.warn("регистрация", values);
             registration({
               variables: {
                 login: values[EFieldsNames[EFieldsNames.LOGIN]],
                 email: values[EFieldsNames[EFieldsNames.EMAIL]],
                 name: values[EFieldsNames[EFieldsNames.NAME]],
-                password: values[EFieldsNames[EFieldsNames.CONFIRM_PASSWORD]]
-              }
+                password: values[EFieldsNames[EFieldsNames.CONFIRM_PASSWORD]],
+              },
             });
           } else {
             console.warn("login", values);
@@ -76,7 +75,7 @@ const Login: React.FC<ILoginProps> = props => {
         }
       });
     },
-    [validateFieldsAndScroll, isRegister]
+    [validateFieldsAndScroll, isRegister, registration],
   );
 
   const onRegistr = useCallback(() => {
@@ -96,7 +95,7 @@ const Login: React.FC<ILoginProps> = props => {
         callback();
       }
     },
-    [getFieldValue]
+    [getFieldValue],
   );
 
   const validateToNextPassword = useCallback(
@@ -106,7 +105,7 @@ const Login: React.FC<ILoginProps> = props => {
       }
       callback();
     },
-    [confirmDirty, validateFields]
+    [confirmDirty, validateFields],
   );
 
   if (loading) {
@@ -121,9 +120,9 @@ const Login: React.FC<ILoginProps> = props => {
             rules: [
               {
                 required: true,
-                message: "Пожалуйста введите имя пользователя"
-              }
-            ]
+                message: "Пожалуйста введите имя пользователя",
+              },
+            ],
           })(<Input placeholder={"Имя пользователя"} />)}
         </FormItem>
 
@@ -134,9 +133,9 @@ const Login: React.FC<ILoginProps> = props => {
                 rules: [
                   {
                     required: true,
-                    message: "Введите свое имя"
-                  }
-                ]
+                    message: "Введите свое имя",
+                  },
+                ],
               })(<Input placeholder={"Имя"} />)}
             </FormItem>
 
@@ -145,13 +144,13 @@ const Login: React.FC<ILoginProps> = props => {
                 rules: [
                   {
                     required: true,
-                    message: "Пожалуйста введите E-mail"
+                    message: "Пожалуйста введите E-mail",
                   },
                   {
                     type: "email",
-                    message: "Введенный E-mail не валидный!"
-                  }
-                ]
+                    message: "Введенный E-mail не валидный!",
+                  },
+                ],
               })(<Input placeholder={"Email"} />)}
             </FormItem>
           </Fragment>
@@ -162,12 +161,12 @@ const Login: React.FC<ILoginProps> = props => {
             rules: [
               {
                 required: true,
-                message: "Пожалуйста введите пароль"
+                message: "Пожалуйста введите пароль",
               },
               {
-                validator: validateToNextPassword
-              }
-            ]
+                validator: validateToNextPassword,
+              },
+            ],
           })(<Input.Password placeholder={"Пароль"} />)}
         </FormItem>
 
@@ -177,12 +176,12 @@ const Login: React.FC<ILoginProps> = props => {
               rules: [
                 {
                   required: true,
-                  message: "Пожалуйста повторите введенный пароль"
+                  message: "Пожалуйста повторите введенный пароль",
                 },
                 {
-                  validator: compareToFirstPassword
-                }
-              ]
+                  validator: compareToFirstPassword,
+                },
+              ],
             })(<Input.Password placeholder={"Повторите пароль"} onBlur={handleConfirmBlur} />)}
           </FormItem>
         ) : null}

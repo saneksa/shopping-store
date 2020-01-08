@@ -15,5 +15,5 @@ ReactDOM.render(
       </Switch>
     </BrowserRouter>
   </ApolloProvider>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

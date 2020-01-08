@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from "react";
 import { Spin as AntSpin } from "antd";
 import { SpinProps } from "antd/lib/spin";
@@ -13,7 +14,7 @@ export const Spin = (props: ISpinnerProps) => {
     <div css={spinnerWrapperStyle}>
       <AntSpin size="large" />
     </div>,
-    document.body
+    document.body,
   );
 };
 

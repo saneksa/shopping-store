@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "./Login";
-import { Route, RouteChildrenProps, RouteProps } from "react-router-dom";
+import { Route, RouteProps } from "react-router-dom";
 
 interface ILoginRouterProps extends RouteProps {}
 
@@ -20,7 +20,7 @@ export const LoginRouter: React.FC<ILoginRouterProps> = ({ path, exact }) => {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               width: "100%",
-              height: "100%"
+              height: "100%",
             }}
           />
           <Login {...props} />
