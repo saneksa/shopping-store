@@ -1,0 +1,17 @@
+{
+  "name": "shopping-store",
+  "version": "1.0.0",
+  "author": "Alexandr <saneksa2@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "start": "lerna run start --stream"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

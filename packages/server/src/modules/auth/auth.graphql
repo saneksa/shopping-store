@@ -1,0 +1,14 @@
+type Query {
+  login: String
+}
+
+type Mutation {
+  registration(params: RegistrationParams): Boolean
+}
+
+input RegistrationParams {
+  login: String!
+  name: String!
+  email: String!
+  password: String!
+}
