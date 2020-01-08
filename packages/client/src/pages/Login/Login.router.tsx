@@ -1,30 +1,22 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
+import { Fragment, FC } from "react";
 import Login from "./Login";
 import { Route, RouteProps } from "react-router-dom";
+import { wrapperLoginRouterStyle } from "./Login.styles";
 
 interface ILoginRouterProps extends RouteProps {}
 
-export const LoginRouter: React.FC<ILoginRouterProps> = ({ path, exact }) => {
+export const LoginRouter: FC<ILoginRouterProps> = ({ path, exact }) => {
   return (
     <Route
       path={path}
       exact={exact}
       render={props => (
-        <>
-          <div
-            style={{
-              // backgroundImage: "url(kosmos.jpg)",
-              backgroundColor: "midnightblue",
-              filter: "brightness(0.3)",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              width: "100%",
-              height: "100%",
-            }}
-          />
+        <Fragment>
+          <div css={wrapperLoginRouterStyle} />
           <Login {...props} />
-        </>
+        </Fragment>
       )}
     />
   );

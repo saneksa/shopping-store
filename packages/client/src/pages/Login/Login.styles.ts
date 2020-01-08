@@ -1,5 +1,15 @@
 import { ObjectInterpolation } from "@emotion/core";
 
+export const wrapperLoginRouterStyle: ObjectInterpolation<any> = {
+  backgroundColor: "midnightblue",
+  filter: "brightness(0.3)",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  width: "100%",
+  height: "100%",
+};
+
 export const wrapperLoginStyles: ObjectInterpolation<any> = {
   minWidth: "400px",
   minHeight: "200px",
